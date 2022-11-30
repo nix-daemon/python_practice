@@ -13,11 +13,11 @@ class Restaurant:
 		print(f"{self.restaurant_name} is now open!!")
 
 class Icecreamstand(Restaurant):
-    def __init__(self, restaurant_name, cuisine_type):
+    def __init__(self, restaurant_name, cuisine_type, flavors):
         """Represents aspects of an ice cream stand which is a type of 
         restaurant"""
         super().__init__(restaurant_name, cuisine_type)
-        self.flavors = 'chocolate', 'strawberry', 'rocky road'
+        self.flavors = flavors
 
     def list_flavors(self):
         "Prints a list of flavors for the ice cream stand."
@@ -26,7 +26,9 @@ class Icecreamstand(Restaurant):
         for flavor in self.flavors:
             print(flavor.title())
 
-my_ice_cream_stand = Icecreamstand('Marble Slab', 'Ice Cream')
+
+flavors = ['chocolate', 'strawberry']
+my_ice_cream_stand = Icecreamstand('Marble Slab', 'Ice Cream', flavors)
 my_ice_cream_stand.open_restuarant()
 my_ice_cream_stand.list_flavors()
 
