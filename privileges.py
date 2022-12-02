@@ -34,5 +34,5 @@ class Privileges:
         for privilege in self.privileges:
             print(privilege)
 
-admin_1 = Admin('Johnathan', 'Rutherford', 'jmruthe.sa', 100)
-admin_1.privileges.show_privileges()
+# admin_1 = Admin('Johnathan', 'Rutherford', 'jmruthe.sa', 100)
+# admin_1.privileges.show_privileges()
