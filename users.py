@@ -18,13 +18,13 @@ class User:
 	def greet_user(self):
 		print(f"Welcome back {self.first_name} {self.last_name}!")
 
-user_1 = User('Johnathan', 'Rutherford', 'jmruthe', 0)
-user_2 = User('Sharaya', 'Rutherford', 'ssruthe', 1)
-user_3 = User('Zara', 'Rutherford', 'zaruthe', 2)
+# user_1 = User('Johnathan', 'Rutherford', 'jmruthe', 0)
+# user_2 = User('Sharaya', 'Rutherford', 'ssruthe', 1)
+# user_3 = User('Zara', 'Rutherford', 'zaruthe', 2)
 
-user_1.describe_user()
-user_1.greet_user()
-user_2.describe_user()
-user_2.greet_user()
-user_3.describe_user()
-user_3.greet_user()
+# user_1.describe_user()
+# user_1.greet_user()
+# user_2.describe_user()
+# user_2.greet_user()
+# user_3.describe_user()
+# user_3.greet_user()
