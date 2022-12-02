@@ -2,7 +2,6 @@ from random import choice
 
 i = 0
 l = 0
-win = 0
 winner = []
 my_ticket = ['a', 'p', 4, 48]
 
