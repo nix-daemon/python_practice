@@ -19,5 +19,4 @@ while winner != my_ticket:
         winner.clear()
         i = 0
         l += 1
-        print(l)
 print(f"It took {l} number of attempts to win!")
