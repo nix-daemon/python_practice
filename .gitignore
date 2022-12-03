@@ -1,5 +1,5 @@
-
-.vscode/print('hi').py
-.vscode/launch.json
-scratchpad.py
+__pycache__/
 text_files/
+.vscode/
+scratchpad.py
+
