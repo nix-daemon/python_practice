@@ -13,7 +13,8 @@ def get_stored_username():
 
 def get_new_username():
     """Prompt for a new username."""
-    username = input("What is your name?")
+    username = input("What is your name? ")
+#    username = 'Michael' # When using Spyder
     filename = 'json/username.json'
     with open(filename, 'w') as f:
         json.dump(username, f)
@@ -23,9 +24,16 @@ def greet_user():
     """Greet the user by name."""
     username = get_stored_username()
     if username:
-        print(f"Welcome back, {username}!")
+#        print(f"Is the correct username: {username}? (y or n)") # For Spyder
+        ans = input(f"Is the correct username: {username}? (y or n)")
+#        ans = 'y' # For Spyder
+        if 'y' in ans:
+            pass
+        else:
+            username = get_new_username()
+        print("Welcome back, " + username + "!")
     else:
         username = get_new_username()
-        print(f"We'll remember you when you come back, {username}!")
+        print("We'll remember you when you come back, " + username + "!")
 
 greet_user()
