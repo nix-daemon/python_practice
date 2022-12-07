@@ -12,7 +12,7 @@ class CitiesTestCase(unittest.TestCase):
     def test_city_country_population(self):
         """Do cities like Fort Worth work with population"""
         location = city_function('fort worth', 'usa', 50000)
-        self.assertEqual(location, 'Fort Worth, Usa - Population 50000')
+        self.assertEqual(location, 'Fort Worth, Usa - Population 500000')
 
 if __name__ == '__main__':
      unittest.main()
