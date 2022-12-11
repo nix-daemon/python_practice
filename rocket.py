@@ -49,7 +49,6 @@ class RocketControl:
         """Update images on the screen, and flip to the new screen."""
         self.screen.fill(self.bg_color)
         self.rocket.blitme()
-
         pygame.display.flip()
 
 if __name__ == '__main__':
