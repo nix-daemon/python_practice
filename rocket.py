@@ -1,57 +1,34 @@
 import pygame
-import sys
 
-from fly import Rocket
+class Rocket:
+    """A class to manage the rocket"""
 
-class RocketControl:
-    """Overall class to manage game"""
-    def __init__(self):
-        pygame.init()
-        self.screen = pygame.display.set_mode((1200, 800))
-        pygame.display.set_caption("Rocket Control")
-        self.bg_color = (255, 255, 255)
-        self.rocket = Rocket(self)
+    def __init__(self, rc_game):
+        """Initialize the ship and set its starting postiion."""
+        self.screen = rc_game.screen
+        self.screen_rect = rc_game.screen.get_rect()
 
-    def run_game(self):
-        """Start the main loop of the game."""
-        while True:
-            self._check_events()
-            self._update_screen()
-            self.rocket.update()
+        # Load the rocket image and get its rect.
+        self.image = pygame.image.load('images/rocket.bmp')
+        self.rect = self.image.get_rect()
 
-    def _check_events(self):
-        """Respond to keypresses and mouse"""
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    self.rocket.moving_right = True
-                elif event.key == pygame.K_LEFT:
-                    self.rocket.moving_left = True
-                elif event.key == pygame.K_UP:
-                    self.rocket.moving_up = True
-                elif event.key == pygame.K_DOWN:
-                    self.rocket.moving_down = True
+        # Start each new rocket at the center of the screen.
+        self.rect.center = self.screen_rect.center
+        self.moving_right = False
+        self.moving_left = False
+        self.moving_up = False 
+        self.moving_down = False
 
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_RIGHT:
-                    self.rocket.moving_right = False
-                elif event.key == pygame.K_LEFT:
-                    self.rocket.moving_left = False
-                elif event.key == pygame.K_UP:
-                    self.rocket.moving_up = False
-                elif event.key == pygame.K_DOWN:
-                    self.rocket.moving_down = False
-            
+    def update(self):
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.rect.x += 1
+        if self.moving_left and self.rect.left > 0:
+            self.rect.x -= 1
+        if self.moving_up and self.rect.top > 0:
+            self.rect.y -= 1
+        if self.moving_down and self.rect.bottom <= self.screen_rect.bottom:
+            self.rect.y += 1
 
-    def _update_screen(self):
-        """Update images on the screen, and flip to the new screen."""
-        self.screen.fill(self.bg_color)
-        self.rocket.blitme()
-        pygame.display.flip()
-
-if __name__ == '__main__':
-    # Make a game instance, and run the game.
-    rc = RocketControl()
-    rc.run_game()
+    def blitme(self):
+        """Draw the ship at its current location."""
+        self.screen.blit(self.image, self.rect)
