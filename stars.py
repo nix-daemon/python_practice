@@ -65,7 +65,6 @@ class StarGame:
         """Create an star and place it in the row."""
         star = Star(self)
         star_width, star_height = star.rect.size
-        print(star_width, star_height)
         star.x = star_width + 2 * star_width * star_number
         star.rect.x = star.x
         star.rect.y = star_height + 2 * star.rect.height * row_number
